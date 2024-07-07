@@ -1,0 +1,16 @@
+FROM node:18-alpine
+
+#Working app directory
+WORKDIR /app
+
+#install app dependincies
+COPY package*.json ./
+
+RUN npm install
+
+#copy souce code to work dir
+COPY . .
+
+EXPOSE 5000
+
+CMD [ "npm","start" ]
